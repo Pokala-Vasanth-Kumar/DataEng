@@ -1,13 +1,13 @@
 {
 	"name": "HttpGit",
-	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
 		"annotations": [],
 		"type": "HttpServer",
 		"typeProperties": {
-			"url": "https://github.com/Pokala-Vasanth-Kumar/DataEng/blob/main/Adventure%20Product.csv",
+			"url": "https://raw.githubusercontent.com/Pokala-Vasanth-Kumar/DataEng/refs/heads/main/Car_sales.csv",
 			"enableServerCertificateValidation": true,
 			"authenticationType": "Anonymous"
 		}
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/linkedservices"
 }
