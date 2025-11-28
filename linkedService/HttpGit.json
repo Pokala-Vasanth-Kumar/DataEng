@@ -5,6 +5,7 @@
 		"type": "HttpServer",
 		"typeProperties": {
 			"url": "https://raw.githubusercontent.com/",
+			"relative url": "Pokala-Vasanth-Kumar/DataEng/refs/heads/main/Car_sales.csv",
 			"enableServerCertificateValidation": true,
 			"authenticationType": "Anonymous"
 		}
