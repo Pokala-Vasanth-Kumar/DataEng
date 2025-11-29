@@ -11,7 +11,7 @@
 		"parameters": {
 			"file_name": {
 				"type": "string",
-				"defaultValue": "value"
+				"defaultValue": "https://raw.githubusercontent.com/Pokala-Vasanth-Kumar/DataEng/main/car_sales_data_new.csv"
 			}
 		},
 		"annotations": [],
