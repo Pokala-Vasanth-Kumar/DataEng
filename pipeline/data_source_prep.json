@@ -52,7 +52,7 @@
 						"referenceName": "ds_github",
 						"type": "DatasetReference",
 						"parameters": {
-							"file_name": "InputFile.csv"
+							"file_name": "car_sales_data_new.csv"
 						}
 					}
 				],
