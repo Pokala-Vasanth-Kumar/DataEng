@@ -8,7 +8,7 @@
 		"parameters": {
 			"file_name": {
 				"type": "string",
-				"defaultValue": "carsales.csv"
+				"defaultValue": "Value"
 			}
 		},
 		"annotations": [],
