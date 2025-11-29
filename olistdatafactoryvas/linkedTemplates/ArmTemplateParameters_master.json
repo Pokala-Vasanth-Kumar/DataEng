@@ -1,0 +1,48 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "olistdatafactoryvas"
+		},
+		"AzureDataLakeStorage_accountKey": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_password": {
+			"value": ""
+		},
+		"MySql1_password": {
+			"value": ""
+		},
+		"AzureDataLakeStorage_properties_typeProperties_url": {
+			"value": "https://datastorage123pvk.dfs.core.windows.net/"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_server": {
+			"value": "vasanth-pk123.database.windows.net"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_database": {
+			"value": "car-sales-db"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_userName": {
+			"value": "sql-admin"
+		},
+		"MySql1_properties_typeProperties_server": {
+			"value": "h0d0ru.h.filess.io"
+		},
+		"MySql1_properties_typeProperties_database": {
+			"value": "Data Engineering_chestsong"
+		},
+		"MySql1_properties_typeProperties_username": {
+			"value": "Data Engineering_chestsong"
+		},
+		"is_github_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com/"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
