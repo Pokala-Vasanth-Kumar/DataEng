@@ -8,7 +8,7 @@
 		"parameters": {
 			"file_name": {
 				"type": "string",
-				"defaultValue": "@{pipeline().parameters.file_name}"
+				"defaultValue": "car_sales_data_new.csv"
 			}
 		},
 		"annotations": [],
@@ -22,6 +22,7 @@
 				}
 			},
 			"columnDelimiter": ",",
+			"rowDelimiter": "\n",
 			"escapeChar": "\\",
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
