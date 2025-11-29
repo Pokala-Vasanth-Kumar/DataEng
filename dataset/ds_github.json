@@ -8,7 +8,7 @@
 		"parameters": {
 			"file_name": {
 				"type": "string",
-				"defaultValue": "myfile.csv"
+				"defaultValue": "@{pipeline().parameters.file_name}"
 			}
 		},
 		"annotations": [],
