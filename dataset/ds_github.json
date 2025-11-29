@@ -16,10 +16,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "HttpServerLocation",
-				"relativeUrl": {
-					"value": "Pokala-Vasanth-Kumar/DataEng/main/@{dataset().file_name}",
-					"type": "Expression"
-				}
+				"relativeUrl": "Pokala-Vasanth-Kumar/DataEng/main/@{dataset().file_name}"
 			},
 			"columnDelimiter": ",",
 			"rowDelimiter": "\n",
