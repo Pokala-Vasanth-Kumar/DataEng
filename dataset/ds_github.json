@@ -5,6 +5,12 @@
 			"referenceName": "is_github",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"file_name": {
+				"type": "string",
+				"defaultValue": "@{pipeline().parameters.file_name}"
+			}
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
