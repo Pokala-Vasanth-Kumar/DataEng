@@ -1,4 +1,4 @@
-Manufacturer,Model,Engine_size,Fuel type,Year_of_manufacture,Mileage,Price
+Manufacturer,Model,Engine_size,Fuel_type,Year_of_manufacture,Mileage,Price
 Ford,Fiesta,1.0,Petrol,2002,127300,3074
 Porsche,718 Cayman,4.0,Petrol,2016,57850,49704
 Ford,Mondeo,1.6,Diesel,2014,39190,24072
