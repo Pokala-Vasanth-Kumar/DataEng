@@ -16,7 +16,10 @@
 		"typeProperties": {
 			"location": {
 				"type": "HttpServerLocation",
-				"relativeUrl": "Pokala-Vasanth-Kumar/DataEng/main/car_sales_data_new.csv"
+				"relativeUrl": {
+					"value": "Pokala-Vasanth-Kumar/DataEng/main/@{dataset().file_name}",
+					"type": "Expression"
+				}
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
