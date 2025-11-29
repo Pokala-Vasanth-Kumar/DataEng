@@ -1,12 +1,6 @@
 {
 	"name": "is_github",
 	"properties": {
-		"parameters": {
-			"file_name": {
-				"type": "string",
-				"defaultValue": "@{pipeline().parameters.file_name}"
-			}
-		},
 		"annotations": [],
 		"type": "HttpServer",
 		"typeProperties": {
