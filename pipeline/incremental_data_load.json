@@ -5,8 +5,6 @@
 			{
 				"name": "last_load",
 				"type": "Lookup",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
@@ -15,11 +13,20 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": [],
+				"userProperties": [
+					{
+						"name": "last_load"
+					}
+				],
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "select * from watermark_table",
+						"sqlReaderStoredProcedureName": "[dbo].[UpdateWaterMarkTable]",
+						"storedProcedureParameters": {
+							"last_load": {
+								"type": "String"
+							}
+						},
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -65,8 +72,6 @@
 			{
 				"name": "Copy_incremental_data",
 				"type": "Copy",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [
 					{
 						"activity": "last_load",
@@ -93,13 +98,32 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "select * from source_cars_data\n where price > '@{activity('last_load').output.value[0].last_load}' and \n price <= '@{activity('current_load').output.value[0].current_load}'",
+							"value": "select * from source_cars_data\n where price > '@{activity('last_load').output.value[0].last_load}' and \n price <= '@{activity('current_load').output.value[0].Highest_Price}'\n",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
-					"enableStaging": false
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
 				},
 				"inputs": [
 					{
@@ -109,7 +133,44 @@
 							"table_name": "source_cars_data"
 						}
 					}
+				],
+				"outputs": [
+					{
+						"referenceName": "Paraquet1",
+						"type": "DatasetReference"
+					}
 				]
+			},
+			{
+				"name": "Stored procedure1",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Copy_incremental_data",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[UpdateWaterMarkTable]",
+					"storedProcedureParameters": {
+						"value": "@activity('current_load').output.value[0].Highest_price",
+						"type": "Expression"
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "is_sql_db",
+					"type": "LinkedServiceReference"
+				}
 			}
 		],
 		"annotations": []
