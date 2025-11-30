@@ -52,14 +52,17 @@
 						"referenceName": "ds_github",
 						"type": "DatasetReference",
 						"parameters": {
-							"file_name": "car_sales_data_new.csv"
+							"table_name": "Value"
 						}
 					}
 				],
 				"outputs": [
 					{
 						"referenceName": "ds_sqldb",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"table_name": "watermark_table"
+						}
 					}
 				]
 			}
