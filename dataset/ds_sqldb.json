@@ -12,7 +12,7 @@
 			},
 			"file_name": {
 				"type": "string",
-				"defaultValue": "Value"
+				"defaultValue": "car_sales_data_new.csv"
 			}
 		},
 		"annotations": [],
