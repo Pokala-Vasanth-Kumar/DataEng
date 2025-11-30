@@ -27,7 +27,8 @@
 						"parameters": {
 							"table_name": "watermark_table"
 						}
-					}
+					},
+					"firstRowOnly": false
 				}
 			},
 			{
