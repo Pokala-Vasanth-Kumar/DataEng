@@ -52,7 +52,6 @@
 						"referenceName": "ds_github",
 						"type": "DatasetReference",
 						"parameters": {
-							"table_name": "source_cars_data",
 							"file_name": "car_sales_data_new.csv"
 						}
 					}
