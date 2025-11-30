@@ -6,10 +6,6 @@
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"file_name": {
-				"type": "string",
-				"defaultValue": "Value"
-			},
 			"table_name": {
 				"type": "string",
 				"defaultValue": "Value"

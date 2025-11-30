@@ -5,6 +5,8 @@
 			{
 				"name": "last_load",
 				"type": "Lookup",
+				"state": "Inactive",
+				"onInactiveMarkAs": "Skipped",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
@@ -64,9 +66,24 @@
 				}
 			},
 			{
-				"name": "Copy incremental data",
+				"name": "Copy data1",
 				"type": "Copy",
-				"dependsOn": [],
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
+				"dependsOn": [
+					{
+						"activity": "last_load",
+						"dependencyConditions": [
+							"Skipped"
+						]
+					},
+					{
+						"activity": "current_load",
+						"dependencyConditions": [
+							"Skipped"
+						]
+					}
+				],
 				"policy": {
 					"timeout": "0.12:00:00",
 					"retry": 0,
@@ -74,24 +91,27 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": [
-					{
-						"name": "table_name",
-						"value": "Value"
-					}
-				],
+				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "AzureSqlSource",
-						"queryTimeout": "02:00:00",
-						"partitionOption": "None"
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "HttpReadSettings",
+							"requestMethod": "GET"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
 					},
 					"enableStaging": false
 				},
 				"inputs": [
 					{
-						"referenceName": "AzureSqlTable1",
-						"type": "DatasetReference"
+						"referenceName": "ds_github",
+						"type": "DatasetReference",
+						"parameters": {
+							"table_name": "Value"
+						}
 					}
 				]
 			}
