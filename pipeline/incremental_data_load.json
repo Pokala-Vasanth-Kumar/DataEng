@@ -13,7 +13,12 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": [],
+				"userProperties": [
+					{
+						"name": "table_name",
+						"value": "watermark_table"
+					}
+				],
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
