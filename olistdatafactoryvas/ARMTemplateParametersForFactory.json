@@ -14,6 +14,12 @@
 		"MySql1_password": {
 			"value": ""
 		},
+		"is_sql_db_password": {
+			"value": ""
+		},
+		"datalake_storage_service_accountKey": {
+			"value": ""
+		},
 		"AzureDataLakeStorage_properties_typeProperties_url": {
 			"value": "https://datastorage123pvk.dfs.core.windows.net/"
 		},
@@ -37,6 +43,18 @@
 		},
 		"is_github_properties_typeProperties_url": {
 			"value": "https://raw.githubusercontent.com/"
+		},
+		"is_sql_db_properties_typeProperties_server": {
+			"value": "vasanth-pk123.database.windows.net"
+		},
+		"is_sql_db_properties_typeProperties_database": {
+			"value": "car-sales-db"
+		},
+		"is_sql_db_properties_typeProperties_userName": {
+			"value": "sql-admin"
+		},
+		"datalake_storage_service_properties_typeProperties_url": {
+			"value": "https://datastorage123pvk.dfs.core.windows.net/"
 		}
 	}
 }
