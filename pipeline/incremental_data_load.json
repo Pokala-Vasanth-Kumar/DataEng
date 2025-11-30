@@ -64,7 +64,7 @@
 				}
 			},
 			{
-				"name": "Copy_incremental_data",
+				"name": "Copy incremental data",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -74,46 +74,24 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": [],
+				"userProperties": [
+					{
+						"name": "table_name",
+						"value": "Value"
+					}
+				],
 				"typeProperties": {
 					"source": {
-						"type": "DelimitedTextSource",
-						"storeSettings": {
-							"type": "HttpReadSettings",
-							"requestMethod": "GET"
-						},
-						"formatSettings": {
-							"type": "DelimitedTextReadSettings"
-						}
+						"type": "AzureSqlSource",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
 					},
-					"sink": {
-						"type": "AzureSqlSink",
-						"writeBehavior": "insert",
-						"sqlWriterUseTableLock": false
-					},
-					"enableStaging": false,
-					"translator": {
-						"type": "TabularTranslator",
-						"typeConversion": true,
-						"typeConversionSettings": {
-							"allowDataTruncation": true,
-							"treatBooleanAsNumber": false
-						}
-					}
+					"enableStaging": false
 				},
 				"inputs": [
 					{
-						"referenceName": "ds_github",
+						"referenceName": "AzureSqlTable1",
 						"type": "DatasetReference"
-					}
-				],
-				"outputs": [
-					{
-						"referenceName": "ds_sqldb",
-						"type": "DatasetReference",
-						"parameters": {
-							"table_name": "watermark_table"
-						}
 					}
 				]
 			}
