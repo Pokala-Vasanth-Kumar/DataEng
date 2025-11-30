@@ -107,7 +107,10 @@
 				"inputs": [
 					{
 						"referenceName": "AzureSqlTable1",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"table_name": "source_cars_data"
+						}
 					}
 				]
 			}
