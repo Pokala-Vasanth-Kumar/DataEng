@@ -5,8 +5,6 @@
 			{
 				"name": "last_load",
 				"type": "Lookup",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
@@ -66,10 +64,8 @@
 				}
 			},
 			{
-				"name": "Copy data from github",
+				"name": "Copy_incremental_data",
 				"type": "Copy",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
@@ -108,10 +104,7 @@
 				"inputs": [
 					{
 						"referenceName": "ds_github",
-						"type": "DatasetReference",
-						"parameters": {
-							"file_name": "Value"
-						}
+						"type": "DatasetReference"
 					}
 				],
 				"outputs": [

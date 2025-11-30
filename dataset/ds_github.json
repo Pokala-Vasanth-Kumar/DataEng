@@ -9,6 +9,10 @@
 			"file_name": {
 				"type": "string",
 				"defaultValue": "Value"
+			},
+			"table_name": {
+				"type": "string",
+				"defaultValue": "Value"
 			}
 		},
 		"annotations": [],
@@ -16,7 +20,10 @@
 		"typeProperties": {
 			"location": {
 				"type": "HttpServerLocation",
-				"relativeUrl": "Pokala-Vasanth-Kumar/DataEng/main/@{dataset().file_name}"
+				"relativeUrl": {
+					"value": "Pokala-Vasanth-Kumar/DataEng/main/@{dataset().file_name}",
+					"type": "Expression"
+				}
 			},
 			"columnDelimiter": ",",
 			"rowDelimiter": "\n",
