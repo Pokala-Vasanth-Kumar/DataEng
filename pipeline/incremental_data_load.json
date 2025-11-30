@@ -5,8 +5,6 @@
 			{
 				"name": "last_load",
 				"type": "Lookup",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Skipped",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
@@ -15,12 +13,7 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": [
-					{
-						"name": "table_name",
-						"value": "watermark_table"
-					}
-				],
+				"userProperties": [],
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
@@ -34,7 +27,8 @@
 						"parameters": {
 							"table_name": "watermark_table"
 						}
-					}
+					},
+					"firstRowOnly": false
 				}
 			},
 			{
@@ -52,7 +46,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "select max(price)as max_price from source_cars_data",
+						"sqlReaderQuery": "select max(price) as Highest_Price from source_cars_data",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -62,28 +56,14 @@
 						"parameters": {
 							"table_name": "source_cars_data"
 						}
-					}
+					},
+					"firstRowOnly": false
 				}
 			},
 			{
-				"name": "Copy data1",
+				"name": "Copy_incremental_data",
 				"type": "Copy",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
-				"dependsOn": [
-					{
-						"activity": "last_load",
-						"dependencyConditions": [
-							"Skipped"
-						]
-					},
-					{
-						"activity": "current_load",
-						"dependencyConditions": [
-							"Skipped"
-						]
-					}
-				],
+				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
 					"retry": 0,
@@ -91,28 +71,10 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": [
-					{
-						"name": "table_name"
-					}
-				],
+				"userProperties": [],
 				"typeProperties": {
-					"source": {
-						"type": "AzureSqlSource",
-						"queryTimeout": "02:00:00",
-						"partitionOption": "None"
-					},
 					"enableStaging": false
-				},
-				"inputs": [
-					{
-						"referenceName": "AzureSqlTable1",
-						"type": "DatasetReference",
-						"parameters": {
-							"table_name": "source_cars_data"
-						}
-					}
-				]
+				}
 			}
 		],
 		"annotations": []
