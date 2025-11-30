@@ -25,7 +25,8 @@
 						"referenceName": "ds_sqldb",
 						"type": "DatasetReference",
 						"parameters": {
-							"table_name": "watermark_table"
+							"table_name": "watermark_table",
+							"file_name": "car_sales_data_new.csv"
 						}
 					},
 					"firstRowOnly": false
@@ -54,7 +55,8 @@
 						"referenceName": "ds_sqldb",
 						"type": "DatasetReference",
 						"parameters": {
-							"table_name": "source_cars_data"
+							"table_name": "source_cars_data",
+							"file_name": "car_sales_data_new.csv"
 						}
 					},
 					"firstRowOnly": false
@@ -89,7 +91,7 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "select * from source_cars_data \nwhere price >'@{activity('last_load').output.value[0].last_load}'\nand price <='@{activity('current_load').output.value[0].Highest_Price}'",
+							"value": "select * from source_cars_data \nwhere price >'@{activity('last_load').output.value[0].last_load}'\nand price <='@{activity('current_load').output.value[0].highest_Price}'",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",
@@ -121,7 +123,8 @@
 						"referenceName": "ds_sqldb",
 						"type": "DatasetReference",
 						"parameters": {
-							"table_name": "source_cars_data"
+							"table_name": "source_cars_data",
+							"file_name": "car_sales_data_new.csv"
 						}
 					}
 				],
@@ -155,7 +158,10 @@
 					"storedProcedureName": "[dbo].[UpdateWaterMarkTable]",
 					"storedProcedureParameters": {
 						"last_load": {
-							"value": "",
+							"value": {
+								"value": "@activity('current_load').output.value[0].highest_price",
+								"type": "Expression"
+							},
 							"type": "String"
 						}
 					}
