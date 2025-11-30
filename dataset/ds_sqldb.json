@@ -9,6 +9,10 @@
 			"table_name": {
 				"type": "string",
 				"defaultValue": "watermark_table"
+			},
+			"file_name": {
+				"type": "string",
+				"defaultValue": "car_sales_data_new.csv"
 			}
 		},
 		"annotations": [],

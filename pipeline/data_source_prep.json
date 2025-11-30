@@ -61,8 +61,7 @@
 						"referenceName": "ds_sqldb",
 						"type": "DatasetReference",
 						"parameters": {
-							"table_name": "source_cars_data",
-							"file_name": "car_sales_data_new.csv"
+							"table_name": "source_cars_data"
 						}
 					}
 				]
