@@ -130,7 +130,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "Paraquet1",
+						"referenceName": "parquet",
 						"type": "DatasetReference"
 					}
 				]
