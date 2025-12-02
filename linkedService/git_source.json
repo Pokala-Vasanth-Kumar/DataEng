@@ -1,0 +1,12 @@
+{
+	"name": "git_source",
+	"properties": {
+		"annotations": [],
+		"type": "HttpServer",
+		"typeProperties": {
+			"url": "https://raw.githubusercontent.com/Pokala-Vasanth-Kumar/DataEng/refs/heads/main/car_sales_data_new.csv",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous"
+		}
+	}
+}
