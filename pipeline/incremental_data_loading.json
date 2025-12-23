@@ -89,7 +89,7 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "select * from cars_sales_data\nwhere Price > @{activity('last_load').output.value[0].last_load}\n and price <= @{activity('current_load').output.value[0].High_price}",
+							"value": "SELECT * FROM cars_sales_data\nWHERE Price > @{activity('last_load').output.value[0].last_load}\n  AND Price <= @{activity('current_load').output.value[0].High_price}\n",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",
