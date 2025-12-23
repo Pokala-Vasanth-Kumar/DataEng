@@ -13,7 +13,6 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": [],
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
@@ -25,8 +24,7 @@
 						"referenceName": "ds_sql",
 						"type": "DatasetReference",
 						"parameters": {
-							"table_name": "watermark_table",
-							"current_load": "99989.12"
+							"table_name": "watermark_table"
 						}
 					},
 					"firstRowOnly": false
@@ -47,7 +45,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "select max(price) as Highest_price from cars_sales_data",
+						"sqlReaderQuery": "select max(price) as Higher_price from cars_sales_data",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -55,97 +53,10 @@
 						"referenceName": "ds_sql",
 						"type": "DatasetReference",
 						"parameters": {
-							"table_name": "cars_sales_data",
-							"current_load": "99989.12"
+							"table_name": "cars_sales_data"
 						}
 					},
 					"firstRowOnly": false
-				}
-			},
-			{
-				"name": "Copy_incremental_data",
-				"type": "Copy",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
-				"dependsOn": [
-					{
-						"activity": "last_load",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					},
-					{
-						"activity": "current_load",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"policy": {
-					"timeout": "0.12:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"source": {
-						"type": "AzureSqlSource",
-						"sqlReaderQuery": {
-							"value": "SELECT *\nFROM cars_sales_data\nWHERE Price > @{activity('last_load').output.value[0].last_load}\n  AND Price <= @{activity('current_load').output.value[0].Highest_price}\n",
-							"type": "Expression"
-						},
-						"queryTimeout": "02:00:00",
-						"partitionOption": "None"
-					},
-					"enableStaging": false
-				},
-				"inputs": [
-					{
-						"referenceName": "ds_sql",
-						"type": "DatasetReference",
-						"parameters": {
-							"table_name": "Cars_sales_data"
-						}
-					}
-				]
-			},
-			{
-				"name": "watermark_table",
-				"type": "SqlServerStoredProcedure",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
-				"dependsOn": [
-					{
-						"activity": "Copy_incremental_data",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"policy": {
-					"timeout": "0.12:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"storedProcedureParameters": {
-						"last_load": {
-							"value": {
-								"value": "@activity('current_load').output.value[0].Highest_price",
-								"type": "Expression"
-							},
-							"type": "String"
-						}
-					}
-				},
-				"linkedServiceName": {
-					"referenceName": "AzureSqlDatabaseconnect",
-					"type": "LinkedServiceReference"
 				}
 			}
 		],
