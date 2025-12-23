@@ -5,6 +5,12 @@
 			"referenceName": "Is_datalake",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"table_name": {
+				"type": "string",
+				"defaultValue": "Value"
+			}
+		},
 		"annotations": [],
 		"type": "Parquet",
 		"typeProperties": {
