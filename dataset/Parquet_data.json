@@ -14,6 +14,47 @@
 			},
 			"compressionCodec": "snappy"
 		},
-		"schema": []
+		"schema": [
+			{
+				"name": "Car_ID",
+				"type": "UTF8"
+			},
+			{
+				"name": "Brand",
+				"type": "UTF8"
+			},
+			{
+				"name": "Model",
+				"type": "UTF8"
+			},
+			{
+				"name": "Year",
+				"type": "UTF8"
+			},
+			{
+				"name": "Color",
+				"type": "UTF8"
+			},
+			{
+				"name": "Engine_Type",
+				"type": "UTF8"
+			},
+			{
+				"name": "Transmission",
+				"type": "UTF8"
+			},
+			{
+				"name": "Price",
+				"type": "UTF8"
+			},
+			{
+				"name": "Quantity_In_Stock",
+				"type": "UTF8"
+			},
+			{
+				"name": "Status",
+				"type": "UTF8"
+			}
+		]
 	}
 }
