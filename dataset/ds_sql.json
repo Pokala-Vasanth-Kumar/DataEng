@@ -1,0 +1,59 @@
+{
+	"name": "ds_sql",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaseconnect",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Car_ID",
+				"type": "varchar"
+			},
+			{
+				"name": "Brand",
+				"type": "varchar"
+			},
+			{
+				"name": "Model",
+				"type": "varchar"
+			},
+			{
+				"name": "Year",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Color",
+				"type": "varchar"
+			},
+			{
+				"name": "Engine_Type",
+				"type": "varchar"
+			},
+			{
+				"name": "Transmission",
+				"type": "varchar"
+			},
+			{
+				"name": "Price",
+				"type": "varchar"
+			},
+			{
+				"name": "Quantity_In_Stock",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "Status",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "cars_sales_data"
+		}
+	}
+}
