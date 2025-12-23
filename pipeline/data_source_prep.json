@@ -54,7 +54,7 @@
 						"referenceName": "ds_sql",
 						"type": "DatasetReference",
 						"parameters": {
-							"table_name": "car_sales_data"
+							"table_name": "cars_sales_data"
 						}
 					}
 				]
