@@ -19,7 +19,7 @@
 				"folderPath": "raw_data",
 				"fileSystem": "bronze"
 			},
-			"compressionCodec": "snappy"
+			"compressionCodec": "none"
 		},
 		"schema": []
 	}
