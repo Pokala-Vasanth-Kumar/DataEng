@@ -28,7 +28,7 @@
 							"table_name": "watermark_table"
 						}
 					},
-					"firstRowOnly": false
+					"firstRowOnly": true
 				}
 			},
 			{
@@ -57,7 +57,7 @@
 							"table_name": "cars_sales_data"
 						}
 					},
-					"firstRowOnly": false
+					"firstRowOnly": true
 				}
 			},
 			{
