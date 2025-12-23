@@ -21,6 +21,10 @@
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
+					"dataset": {
+						"referenceName": "ds_sql",
+						"type": "DatasetReference"
+					},
 					"firstRowOnly": false
 				}
 			},
@@ -42,6 +46,10 @@
 						"sqlReaderQuery": "select max(price) as Highest_price from cars_sales_data",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "ds_sql",
+						"type": "DatasetReference"
 					},
 					"firstRowOnly": false
 				}
@@ -75,14 +83,20 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "select * from cars_sales_data\nwhere Price > @{activity('last_load').output.value[0].last_load}\nand Price <= @{activity('current_load').output.value[0].Highest_price}",
+							"value": "select * from cars_sales_data where\n Price > @{activity('last_load').output.values[0].last_load} and Price <= @{activity('current_load').output.values[0].Highest_price}",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
 					"enableStaging": false
-				}
+				},
+				"inputs": [
+					{
+						"referenceName": "ds_sql",
+						"type": "DatasetReference"
+					}
+				]
 			},
 			{
 				"name": "watermark_table",

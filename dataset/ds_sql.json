@@ -5,6 +5,12 @@
 			"referenceName": "AzureSqlDatabaseconnect",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"table_name": {
+				"type": "string",
+				"defaultValue": "Value"
+			}
+		},
 		"annotations": [],
 		"type": "AzureSqlTable",
 		"schema": [
@@ -53,7 +59,10 @@
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "cars_sales_data"
+			"table": {
+				"value": "@dataset().table_name",
+				"type": "Expression"
+			}
 		}
 	}
 }
