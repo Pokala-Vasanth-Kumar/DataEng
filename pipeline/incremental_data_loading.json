@@ -1,65 +1,6 @@
 {
 	"name": "incremental_data_loading",
 	"properties": {
-		"activities": [
-			{
-				"name": "last_load",
-				"type": "Lookup",
-				"dependsOn": [],
-				"policy": {
-					"timeout": "0.12:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"typeProperties": {
-					"source": {
-						"type": "AzureSqlSource",
-						"sqlReaderQuery": "select * from watermark_table",
-						"queryTimeout": "02:00:00",
-						"partitionOption": "None"
-					},
-					"dataset": {
-						"referenceName": "ds_sql",
-						"type": "DatasetReference",
-						"parameters": {
-							"table_name": "watermark_table"
-						}
-					},
-					"firstRowOnly": false
-				}
-			},
-			{
-				"name": "current_load",
-				"type": "Lookup",
-				"dependsOn": [],
-				"policy": {
-					"timeout": "0.12:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"source": {
-						"type": "AzureSqlSource",
-						"sqlReaderQuery": "select max(price) as Higher_price from cars_sales_data",
-						"queryTimeout": "02:00:00",
-						"partitionOption": "None"
-					},
-					"dataset": {
-						"referenceName": "ds_sql",
-						"type": "DatasetReference",
-						"parameters": {
-							"table_name": "cars_sales_data"
-						}
-					},
-					"firstRowOnly": false
-				}
-			}
-		],
 		"annotations": [],
 		"lastPublishTime": "2025-12-19T10:13:17Z"
 	},
