@@ -25,7 +25,8 @@
 						"referenceName": "ds_sql",
 						"type": "DatasetReference",
 						"parameters": {
-							"table_name": "watermark_table"
+							"table_name": "watermark_table",
+							"current_load": "99989.12"
 						}
 					},
 					"firstRowOnly": false
@@ -54,7 +55,8 @@
 						"referenceName": "ds_sql",
 						"type": "DatasetReference",
 						"parameters": {
-							"table_name": "cars_sales_data"
+							"table_name": "cars_sales_data",
+							"current_load": "99989.12"
 						}
 					},
 					"firstRowOnly": false
@@ -89,7 +91,7 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "SELECT *\nFROM cars_sales_data\nWHERE Price >@{activity('last_load').output.value[0].last_load}\n  AND Price <=@{activity('current_load').output.value[0].Highest_price}",
+							"value": "SELECT *\nFROM cars_sales_data\nWHERE Price >@{activity('last_load').output['value[0]'].last_load}\n  AND Price <=@{activity('current_load').output['value[0]'].Highest_price}",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",
@@ -102,7 +104,8 @@
 						"referenceName": "ds_sql",
 						"type": "DatasetReference",
 						"parameters": {
-							"table_name": "Cars_sales_data"
+							"table_name": "Cars_sales_data",
+							"current_load": "99989.12"
 						}
 					}
 				]

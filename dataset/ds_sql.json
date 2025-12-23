@@ -9,14 +9,6 @@
 			"table_name": {
 				"type": "string",
 				"defaultValue": "Value"
-			},
-			"last_load": {
-				"type": "string",
-				"defaultValue": "99989.12"
-			},
-			"current_load": {
-				"type": "string",
-				"defaultValue": "99989.12"
 			}
 		},
 		"annotations": [],
