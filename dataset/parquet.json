@@ -11,7 +11,6 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": "Cardata.csv",
-				"folderPath": "raw_data",
 				"fileSystem": "bronze"
 			},
 			"columnDelimiter": ",",
