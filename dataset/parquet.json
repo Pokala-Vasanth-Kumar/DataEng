@@ -2,7 +2,7 @@
 	"name": "parquet",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "AzureDataLakeStorage",
+			"referenceName": "AzureDataLakeStorage1",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "Cardata.csv",
+				"fileName": "cars_data.csv",
 				"fileSystem": "bronze"
 			},
 			"columnDelimiter": ",",
