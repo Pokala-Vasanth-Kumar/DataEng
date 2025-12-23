@@ -108,15 +108,7 @@
 							"fileExtension": ".txt"
 						}
 					},
-					"enableStaging": false,
-					"translator": {
-						"type": "TabularTranslator",
-						"typeConversion": true,
-						"typeConversionSettings": {
-							"allowDataTruncation": true,
-							"treatBooleanAsNumber": false
-						}
-					}
+					"enableStaging": false
 				},
 				"inputs": [
 					{
@@ -126,12 +118,6 @@
 							"table_name": "source_cars_data",
 							"file_name": "car_sales_data_new.csv"
 						}
-					}
-				],
-				"outputs": [
-					{
-						"referenceName": "parquet",
-						"type": "DatasetReference"
 					}
 				]
 			},
