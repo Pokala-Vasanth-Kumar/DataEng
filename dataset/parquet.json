@@ -10,6 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": "Cardata",
 				"folderPath": "raw_data",
 				"fileSystem": "bronze"
 			},
