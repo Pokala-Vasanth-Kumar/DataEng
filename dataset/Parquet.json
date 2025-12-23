@@ -10,7 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "Cars_sales_data",
+				"fileName": "car_sales_data.parquet",
+				"folderPath": "raw_data",
 				"fileSystem": "bronze"
 			},
 			"columnDelimiter": ",",
