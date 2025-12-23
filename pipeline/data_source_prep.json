@@ -15,49 +15,8 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"source": {
-						"type": "DelimitedTextSource",
-						"storeSettings": {
-							"type": "HttpReadSettings",
-							"requestMethod": "GET"
-						},
-						"formatSettings": {
-							"type": "DelimitedTextReadSettings"
-						}
-					},
-					"sink": {
-						"type": "AzureSqlSink",
-						"writeBehavior": "insert",
-						"sqlWriterUseTableLock": false
-					},
-					"enableStaging": false,
-					"translator": {
-						"type": "TabularTranslator",
-						"typeConversion": true,
-						"typeConversionSettings": {
-							"allowDataTruncation": true,
-							"treatBooleanAsNumber": false
-						}
-					}
-				},
-				"inputs": [
-					{
-						"referenceName": "ds_github",
-						"type": "DatasetReference",
-						"parameters": {
-							"file_name": "Cars.csv"
-						}
-					}
-				],
-				"outputs": [
-					{
-						"referenceName": "ds_sql",
-						"type": "DatasetReference",
-						"parameters": {
-							"table_name": "cars_sales_data"
-						}
-					}
-				]
+					"enableStaging": false
+				}
 			}
 		],
 		"annotations": [],

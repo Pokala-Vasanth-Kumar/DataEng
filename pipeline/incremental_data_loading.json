@@ -21,13 +21,6 @@
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
-					"dataset": {
-						"referenceName": "ds_sql",
-						"type": "DatasetReference",
-						"parameters": {
-							"table_name": "Value"
-						}
-					},
 					"firstRowOnly": false
 				}
 			},
@@ -49,13 +42,6 @@
 						"sqlReaderQuery": "select max(price) as Highest_price from cars_sales_data",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
-					},
-					"dataset": {
-						"referenceName": "ds_sql",
-						"type": "DatasetReference",
-						"parameters": {
-							"table_name": "Value"
-						}
 					},
 					"firstRowOnly": false
 				}
@@ -96,16 +82,7 @@
 						"partitionOption": "None"
 					},
 					"enableStaging": false
-				},
-				"inputs": [
-					{
-						"referenceName": "ds_sql",
-						"type": "DatasetReference",
-						"parameters": {
-							"table_name": "cars_sales_data"
-						}
-					}
-				]
+				}
 			},
 			{
 				"name": "watermark_table",
