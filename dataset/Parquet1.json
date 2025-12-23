@@ -1,28 +1,19 @@
 {
-	"name": "ds_github",
+	"name": "Parquet1",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "Httpgit",
+			"referenceName": "AzureDataLakeStorage1",
 			"type": "LinkedServiceReference"
-		},
-		"parameters": {
-			"file_name": {
-				"type": "string",
-				"defaultValue": "Cars.csv"
-			}
 		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
-				"type": "HttpServerLocation",
-				"relativeUrl": {
-					"value": "Pokala-Vasanth-Kumar/DataEng/refs/heads/main/@{dataset().file_name}",
-					"type": "Expression"
-				}
+				"type": "AzureBlobFSLocation",
+				"folderPath": "raw_data",
+				"fileSystem": "bronze"
 			},
 			"columnDelimiter": ",",
-			"rowDelimiter": "\n",
 			"escapeChar": "\\",
 			"firstRowAsHeader": true,
 			"quoteChar": "\""

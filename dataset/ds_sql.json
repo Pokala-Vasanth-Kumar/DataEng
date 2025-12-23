@@ -1,0 +1,70 @@
+{
+	"name": "ds_sql",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"table_name": {
+				"type": "string",
+				"defaultValue": "Value"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Car_ID",
+				"type": "varchar"
+			},
+			{
+				"name": "Brand",
+				"type": "varchar"
+			},
+			{
+				"name": "Model",
+				"type": "varchar"
+			},
+			{
+				"name": "Year",
+				"type": "tinyint",
+				"precision": 3
+			},
+			{
+				"name": "Color",
+				"type": "varchar"
+			},
+			{
+				"name": "Engine_Type",
+				"type": "varchar"
+			},
+			{
+				"name": "Transmission",
+				"type": "varchar"
+			},
+			{
+				"name": "Price",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "Quantity_In_Stock",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "Status",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": {
+				"value": "@dataset().table_name",
+				"type": "Expression"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

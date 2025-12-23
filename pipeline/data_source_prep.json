@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "data from github",
+				"name": "Copy data from github",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -17,12 +17,6 @@
 				"typeProperties": {
 					"source": {
 						"type": "DelimitedTextSource",
-						"additionalColumns": [
-							{
-								"name": "file_name",
-								"value": "$$FILEPATH"
-							}
-						],
 						"storeSettings": {
 							"type": "HttpReadSettings",
 							"requestMethod": "GET"
@@ -34,8 +28,7 @@
 					"sink": {
 						"type": "AzureSqlSink",
 						"writeBehavior": "insert",
-						"sqlWriterUseTableLock": false,
-						"disableMetricsCollection": false
+						"sqlWriterUseTableLock": false
 					},
 					"enableStaging": false,
 					"translator": {
@@ -52,24 +45,20 @@
 						"referenceName": "ds_github",
 						"type": "DatasetReference",
 						"parameters": {
-							"file_name": "car_sales_data_new.csv"
+							"file_name": "Cars.csv"
 						}
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "ds_sqldb",
-						"type": "DatasetReference",
-						"parameters": {
-							"table_name": "source_cars_data",
-							"file_name": "car_sales_data_new.csv"
-						}
+						"referenceName": "ds_sql",
+						"type": "DatasetReference"
 					}
 				]
 			}
 		],
 		"annotations": [],
-		"lastPublishTime": "2025-12-06T17:10:22Z"
+		"lastPublishTime": "2025-12-19T09:46:08Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }

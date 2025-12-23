@@ -1,0 +1,9 @@
+{
+	"name": "pvkdataeng",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "58fb9a0a-013a-45fc-b335-31ee8ac3c7e1",
+		"tenantId": "f0c817b8-5ad1-46d3-98c3-7230d6c9f105"
+	}
+}
