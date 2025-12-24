@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "pvkdataeng"
+		},
+		"AzureSqlDatabase_password": {
+			"value": ""
+		},
+		"Is_datalake_accountKey": {
+			"value": ""
+		},
+		"AzureSqlDatabase_properties_typeProperties_server": {
+			"value": "vasanthkumarpvk.database.windows.net"
+		},
+		"AzureSqlDatabase_properties_typeProperties_database": {
+			"value": "vasanthpk12"
+		},
+		"AzureSqlDatabase_properties_typeProperties_userName": {
+			"value": "sql-admin"
+		},
+		"Is_datalake_properties_typeProperties_url": {
+			"value": "https://vasanthpk12.dfs.core.windows.net/"
+		},
+		"Is_github_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com/"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
