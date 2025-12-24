@@ -17,7 +17,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "select * from",
+						"sqlReaderQuery": "select * from watermark_table",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -44,6 +44,19 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderQuery": "select max(car_ID) as max_car_id from cars_sales_data",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "ds_sqldb",
+						"type": "DatasetReference",
+						"parameters": {
+							"table_name": "cars_sales_data"
+						}
+					},
 					"firstRowOnly": false
 				}
 			},
